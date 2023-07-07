@@ -1,12 +1,8 @@
 from flask import Flask, render_template
 from geojson_scraper import RightmoveData
 import json
-import logging
 
 app = Flask(__name__)
-
-# Configure logging
-logging.basicConfig(filename='app.log', level=logging.DEBUG)
 
 # Example URLs
 urls = [
@@ -33,7 +29,7 @@ def scrape_data():
     # Convert to JSON string
     geojson_str = json.dumps(geojson_obj)
 
-    logging.debug(f"Scraped GeoJSON: {geojson_str}")
+    print(geojson_str)
 
     return geojson_str
 
@@ -45,7 +41,6 @@ def populate_cache():
 
 @app.route('/')
 def index():
-    logging.debug("Rendering index page")
     return render_template('index.html', geojson=cache)
 
 
