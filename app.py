@@ -41,7 +41,7 @@ def populate_cache():
 
 @app.route('/')
 def index():
-    return render_template('index.html', geojson=cache)
+    return render_template('/index.html', geojson=cache)
 
 
 if __name__ == '__main__':
