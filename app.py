@@ -29,6 +29,8 @@ def scrape_data():
     # Convert to JSON string
     geojson_str = json.dumps(geojson_obj)
 
+    print(geojson_str)
+
     return geojson_str
 
 def populate_cache():
